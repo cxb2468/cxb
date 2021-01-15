@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8089
 
 spring:
   datasource:
@@ -27,7 +27,7 @@ spring:
 
 #mybatis配置
 mybatis:
-  mapper-locations: classpath:mapper/*.xml
+  mapper-locations: mapper/*.xml
   type-aliases-package: com.cxb.entity
 
 

@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.cxb.mapper")
+
 public class CxbApplication {
 
     public static void main(String[] args) {

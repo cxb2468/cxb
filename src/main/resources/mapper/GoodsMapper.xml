@@ -3,7 +3,7 @@
 
 
 
-<mapper namespace="com.cxb.entity.Goods">
+<mapper namespace="com.cxb.mapper.GoodsMapper">
 
 
     <resultMap id="GoodsMap" type="com.cxb.entity.Goods">
