@@ -14,18 +14,18 @@
         <result property="brand" column="brand" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <!-- 添加数据 -->
+    <!-- 添加数据 入参有  出参无-->
     <insert id="create" parameterType="com.cxb.entity.Goods">
         INSERT INTO tb_goods(title, price, image, brand)
         VALUES(#{title}, #{price}, #{image}, #{brand})
     </insert>
 
-    <!-- 删除 -->
+    <!-- 删除  入参有  出参无-->
     <delete id="delete" parameterType="Long">
         DELETE FROM tb_goods WHERE id = #{id}
     </delete>
 
-    <!-- 更新数据 -->
+    <!-- 更新数据  入参有 出参无-->
     <update id="update" parameterType="com.cxb.entity.Goods">
         UPDATE tb_goods
         <set>
@@ -45,17 +45,17 @@
         WHERE id = #{id}
     </update>
 
-    <!-- 查询所有 -->
+    <!-- 查询所有 入参无 出参有-->
     <select id="findAll" resultType="com.cxb.entity.Goods">
         SELECT * FROM tb_goods
     </select>
 
-    <!-- 根据id查询 -->
+    <!-- 根据id查询 入参有 出参有-->
     <select id="findById" parameterType="Long" resultMap="GoodsMap">
         SELECT * FROM tb_goods WHERE id = #{id}
     </select>
 
-    <!-- 条件查询 -->
+    <!-- 条件查询  入参有出参有-->
     <select id="findByPage" parameterType="com.cxb.entity.Goods" resultMap="GoodsMap">
         SELECT * FROM tb_goods WHERE 1=1
         <if test="brand != null">

@@ -4,6 +4,7 @@ import com.cxb.entity.Goods;
 import com.cxb.entity.PageBean;
 import com.cxb.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,14 +33,14 @@ public class GoodsController {
     }
 
     @RequestMapping("/delete")
-    public String delete(Long id){
+    public String delete(@RequestParam(value = "id",required = false) Long id){
         goodsService.delete(id);
         return id+"号 删除成功";
     }
 
 
     @RequestMapping("/update")
-    public String update(Goods goods){
+    public String update( Goods goods){
         goodsService.update(goods);
         return "更新成功！";
     }
@@ -51,7 +52,8 @@ public class GoodsController {
     }
 
     @RequestMapping("/findById")
-    public List<Goods> findById(Long id){
+    public List<Goods> findById(@RequestParam(value = "id",required = false,defaultValue = "1124090") Long id){
+
         return goodsService.findById(id);
     }
 

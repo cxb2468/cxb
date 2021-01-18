@@ -56,7 +56,7 @@ public class GoodsServiceImpl implements GoodsService {
         //使用Mybatis分页插件
         PageHelper.startPage(pageCode,pageSize);
         //调用分页查询方法，其实就是查询所有数据，mybatis自动帮我们进行分页计算
-        Page<Goods> page =goodsMapper.findByPage(goods);
+        Page<Goods> page =goodsMapper.findByPage(goods,pageCode,pageSize);
 
         return new PageBean(page.getTotal(),page.getResult());
     }

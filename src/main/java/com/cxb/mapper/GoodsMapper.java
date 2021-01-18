@@ -24,7 +24,7 @@ public interface GoodsMapper {
 
     List<Goods> findById(Long id);
 
-    Page<Goods> findByPage(Goods goods);
+    Page<Goods> findByPage(Goods goods,int pageCode,int pageSize);
 
 
 
