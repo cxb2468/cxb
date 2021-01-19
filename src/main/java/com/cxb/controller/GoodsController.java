@@ -4,10 +4,7 @@ import com.cxb.entity.Goods;
 import com.cxb.entity.PageBean;
 import com.cxb.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,28 +21,28 @@ public class GoodsController {
     private GoodsService goodsService;
 
     //controller层 增删改查
-
+    @CrossOrigin
     @RequestMapping("/create")
     public String create(Goods goods){
         goodsService.create(goods);
         return goods.getTitle()+"增加成功！";
 
     }
-
+    @CrossOrigin
     @RequestMapping("/delete")
     public String delete(@RequestParam(value = "id",required = false) Long id){
         goodsService.delete(id);
         return id+"号 删除成功";
     }
 
-
+    @CrossOrigin
     @RequestMapping("/update")
     public String update( Goods goods){
         goodsService.update(goods);
         return "更新成功！";
     }
 
-
+    @CrossOrigin
     @RequestMapping("/findAll")
     public List<Goods> findAll(){
         return goodsService.findAll();
@@ -56,7 +53,7 @@ public class GoodsController {
 
         return goodsService.findById(id);
     }
-
+    @CrossOrigin
     @RequestMapping("/findByPage")
     public PageBean findByPage(Goods goods,
                                @RequestParam(value = "pageCode",required = false) int pageCode,
